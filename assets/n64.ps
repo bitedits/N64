@@ -1,0 +1,83 @@
+%!PS-Adobe-3.0
+%%Creator: Custom
+%%Title: Nintendo Hardware Architecture
+%%Pages: 1
+%%EndComments
+
+%%Page: 1 1
+
+/HeaderFont   { /Palatino findfont 14 scalefont setfont } def
+/TitleFont    { /Arial-Bold findfont 12 scalefont setfont } def
+/SubTitleFont { /Arial-Bold findfont 10 scalefont setfont } def
+/BodyFont     { /Palatino findfont 10 scalefont setfont } def
+/ItalicFont   { /Palatino findfont 10 scalefont setfont } def
+/FooterFont   { /Arial-Bold findfont 10 scalefont setfont } def
+
+% Header
+HeaderFont
+50 710 moveto (NINTENDO 64) show
+350 710 moveto (HARDWARE ARCHITECTURE) show
+newpath
+50 700 moveto
+550 700 lineto
+stroke
+BodyFont
+
+200 680 moveto () show
+200 665 moveto () show
+200 650 moveto () show
+200 635 moveto (Nintendo 64 game runs in kernel mode with 32-bit addressing. 64-bit integer) show
+200 620 moveto (operations are available in this mode. However, the 32-bit C calling) show
+200 605 moveto (convention is used to maximize performance.) show
+200 590 moveto () show
+200 575 moveto (For more information on the R4300 and the operating system control of the) show
+200 560 moveto (CPU see the MIPS Microprocessor R4000 User's Manual and Chapter 6,) show
+200 545 moveto ("Operating System Overview".) show
+
+% Title: Memory Issues
+TitleFont
+200 515 moveto (Memory Issues) show
+
+% Body Text
+BodyFont
+200 485 moveto (The main memory in the system is used in parallel by the R4300 CPU, the) show
+200 470 moveto (RSP microcode engine, the RDP graphics pipeline, and the other I/O) show
+200 455 moveto (interfaces of the RCP. The software is responsible for defining the memory) show
+200 440 moveto (map. See Chapter 9, "Basic Memory Management" for more details.) show
+
+% Addressing Section
+SubTitleFont
+200 405 moveto (Addressing) show
+
+BodyFont
+200 375 moveto (The R4300 CPU can use physical or virtual addresses. The TLB maps virtual) show
+200 360 moveto (addresses into physical addresses. It is anticipated that programs will) show
+200 345 moveto (mainly use KSEG0 (cached, unmapped) addresses for instructions and data.) show
+200 330 moveto (The RSP hardware uses physical addresses. The microcode imposes a) show
+200 315 moveto (segmented addressing scheme to generate the physical addresses. Bits 24) show
+200 300 moveto (through 27 of the segmented address are used to index into a 16-entry table) show
+200 285 moveto (to obtain the base address of the segment. The upper 4 bits are masked off.) show
+
+% Data Cache Section
+SubTitleFont
+200 245 moveto (Data Cache) show
+
+BodyFont
+200 215 moveto (The R4300 CPU has an 8 KB writeback data cache. This means that when the) show
+200 200 moveto (CPU writes a variable, it may not be written to main memory until later.) show
+200 185 moveto (Since the RSP reads the task list directly from main memory, the dynamic) show
+200 170 moveto (portion of the task list must be flushed from the data cache before the RSP) show
+200 155 moveto (starts.) show
+
+% Footer
+FooterFont
+50 50 moveto (NU6-06-0030-001G of October 21, 1996) show
+535 50 moveto (47) show
+
+showpage
+
+%%Page: 1 2
+
+showpage
+
+%%EOF
