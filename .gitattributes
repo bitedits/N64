@@ -4,3 +4,4 @@
 *.html linguist-detectable=false
 *.htm linguist-detectable=false
 *.sh linguist-detectable=false
+*.ps linguist-detectable=false
